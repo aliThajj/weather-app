@@ -1,0 +1,35 @@
+<div class="weather-chart-container">
+  <div *ngIf="isLoading" class="loading-state">
+    <mat-spinner diameter="50"></mat-spinner>
+    <p>Loading forecast data...</p>
+  </div>
+
+  <div *ngIf="hasError" class="error-state">
+    <mat-icon>error_outline</mat-icon>
+    <p>Failed to load forecast data</p>
+  </div>
+
+  <div *ngIf="!isLoading && !hasError" class="chart-wrapper">
+    <div *ngIf="chartOptions.series?.length; else noData">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [yaxis]="chartOptions.yaxis"
+        [title]="chartOptions.title"
+        [stroke]="chartOptions.stroke"
+        [tooltip]="chartOptions.tooltip"
+        [colors]="chartOptions.colors"
+        [grid]="chartOptions.grid"
+        [markers]="chartOptions.markers"
+      ></apx-chart>
+    </div>
+
+    <ng-template #noData>
+      <div class="no-data">
+        <mat-icon>wb_sunny</mat-icon>
+        <p>No forecast data available</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

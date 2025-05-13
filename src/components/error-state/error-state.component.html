@@ -1,0 +1,8 @@
+<div class="error-state">
+    <mat-icon>error_outline</mat-icon>
+    <h3>Error Loading Data</h3>
+    <p>{{errorMessage}}</p>
+    <button mat-raised-button color="primary" (click)="retry.emit()">
+      Retry
+    </button>
+  </div>

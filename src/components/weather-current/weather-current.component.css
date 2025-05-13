@@ -1,0 +1,112 @@
+.weather-details-card {
+  border-radius: 16px !important;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 8px;
+}
+
+.metric-card {
+  border-radius: 12px !important;
+  transition: all 0.3s ease;
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  &.humidity {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  }
+  
+  &.wind {
+    background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+  }
+  
+  &.clouds {
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+  }
+  
+  &.pressure {
+    background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+  }
+  
+  &.sunrise {
+    background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  }
+  
+  &.sunset {
+    background: linear-gradient(135deg, #fbe9e7, #ffccbc);
+  }
+}
+
+.metric-content {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.metric-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  color: rgba(0,0,0,0.7);
+}
+
+.metric-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-label {
+  font-size: 12px;
+  color: rgba(0,0,0,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(0,0,0,0.9);
+}
+
+.no-location, .loading-state, .error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+    opacity: 0.6;
+  }
+  
+  p {
+    color: rgba(0,0,0,0.6);
+  }
+}
+
+.error-state {
+  mat-icon {
+    color: #f44336;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

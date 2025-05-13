@@ -1,0 +1,10 @@
+<div class="unit-toggle">
+  <div class="toggle-option" [class.active]="unit === 'metric'">°C</div>
+  
+  <label class="switch">
+    <input type="checkbox" [checked]="unit === 'imperial'" (change)="toggleUnit()" />
+    <span class="slider"></span>
+  </label>
+  
+  <div class="toggle-option" [class.active]="unit === 'imperial'">°F</div>
+</div>

@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: #fffbfb;
+}
+
+.fit {
+    width: fit-content;
+}
+
+/* PrimeNg Select */
+.p-autocomplete {
+    width: 100%;
+}
+
+.p-autocomplete .p-inputtext {
+    background: #f8f9fa;
+    color: #000;
+}
+
+/* Angular Material  Select*/
+.mat-mdc-form-field-subscript-wrapper {
+    /* margin-top: -21px; */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    display: none !important;
+}
+
+.mat-mdc-text-field-wrapper {
+    height: 42px !important;
+}
+
+.mdc-text-field--filled,
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #f8f9fa !important;
+}
+
+.mdc-text-field--outlined .mat-mdc-form-field-infix,
+.mdc-text-field--no-label .mat-mdc-form-field-infix {
+    padding: 9px 0 0 !important;
+}
+
+/* .mdc-text-field--filled:not(.mdc-text-field--disabled):not(.mdc-text-field--focused):hover .mdc-line-ripple::before,
+.mdc-line-ripple .mdc-line-ripple--deactivating::before,
+.mdc-line-ripple .mdc-line-ripple--deactivating::after {
+    border: none !important;
+}
+.mdc-line-ripple .mdc-line-ripple--deactivating::before,
+.mdc-line-ripple .mdc-line-ripple--deactivating::after {
+    content: unset;
+} */
+
+.mat-mdc-form-field,
+.mdc-text-field--filled.mdc-text-field--disabled {
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    /* border-bottom: 1px solid #000; */
+}
+
+/* Ng Select */
+.ng-select.ng-select-single .ng-select-container {
+    height: 42px;
+    border-radius: 6px;
+    border: 1px solid #000;
+}

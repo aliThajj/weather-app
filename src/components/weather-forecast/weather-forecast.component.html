@@ -1,0 +1,60 @@
+<div class="card mb-5 mat-elevation-z2 weather-forecast">
+  <div class="card-body p-4">
+    <!-- Loading State -->
+    <!-- <div *ngIf="isLoading" class="text-center py-4">
+      <mat-spinner diameter="50" color="primary"></mat-spinner>
+      <p class="mt-3 text-muted">Loading forecast data...</p>
+    </div> -->
+
+    <div *ngIf="isLoading" class="d-flex flex-column align-items-center justify-content-center w-100 h-100 gap-4 my-4">
+      <mat-spinner diameter="50"></mat-spinner>
+      <p>Loading forecast data...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="alert alert-danger d-flex align-items-center">
+      <mat-icon class="me-2">error</mat-icon>
+      <div class="flex-grow-1">{{ error }}</div>
+      <button mat-stroked-button color="basic" (click)="onRetry()" class="ms-2">
+        <mat-icon>refresh</mat-icon> Retry
+      </button>
+    </div>
+
+    <!-- No Location Selected -->
+    <!-- <div *ngIf="!coordinates && !isLoading && !error" class="text-center text-muted py-4">
+      <mat-icon class="display-4" style="font-size: 3rem; height: 3rem; width: 3rem;">location_on</mat-icon>
+      <p class="mt-2">Please select a location to view forecast</p>
+    </div> -->
+
+    <!-- Forecast Data Display -->
+    <div *ngIf="forecastData && !isLoading">
+      <h3 class="mb-4">Next 5 Days Forecast</h3>
+
+      <div class="row g-3">
+        <!-- Forecast Day Card -->
+        <div *ngFor="let day of forecastData" class="col-md-4 col-lg-2">
+          <mat-card class="h-100 forecast-card">
+            <mat-card-content class="text-center p-3 ">
+              <h5 class="mat-subtitle-1 fw-bold mb-1">{{ day.date | date:'EEE' }}</h5>
+              <p class="mat-caption text-muted mb-3">{{ day.date | date:'MMM d' }}</p>
+
+              <img [src]="getWeatherIconUrl(day.weather.icon)" [alt]="day.weather.description" class="weather-icon mb-2"
+                style="width: 60px; height: 60px">
+
+              <div class="mat-h3 fw-bold mb-2">
+                {{ day.temp | number:'1.0-0' }}{{ unit === 'metric' ? '°C' : '°F' }}
+              </div>
+
+              <p class="mat-small mb-2">{{ day.weather.description | titlecase }}</p>
+
+              <div class="d-flex justify-content-center align-items-center mat-small text-muted">
+                <mat-icon class="me-1" style="font-size: 16px;">air</mat-icon>
+                <span>{{ day.wind }} m/s</span>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

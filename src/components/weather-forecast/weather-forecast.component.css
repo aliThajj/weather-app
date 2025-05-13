@@ -1,0 +1,38 @@
+.weather-forecast {
+  border-radius: 16px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 16px !important;
+  -moz-border-radius: 16px !important;
+  -ms-border-radius: 16px !important;
+  -o-border-radius: 16px !important;
+}
+
+.forecast-day {
+  transition: all 0.2s ease;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.forecast-day:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.forecast-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.forecast-icon img {
+  filter: brightness(0.5);
+
+}
+
+.forecast-temp {
+  font-size: 1.2rem;
+  margin: 8px 0;
+}
+
+.forecast-card{
+  background-color: #f9dcdc;
+}

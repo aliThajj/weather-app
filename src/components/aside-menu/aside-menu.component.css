@@ -1,0 +1,38 @@
+.weather-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.weather-icon {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider {
+    border-top: 9px solid;
+    width: 100%;
+    border-image: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent) 1;
+}
+
+.temperature-section h2 {
+    background: linear-gradient(to right, #ff4d4d, #f39c12);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@media (max-width: 576px) {
+    .weather-card {
+        width: 100%;
+        border-radius: 0;
+    }
+}

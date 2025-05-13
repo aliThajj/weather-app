@@ -1,0 +1,59 @@
+<aside class="weather-card bg-white rounded-4 shadow-sm p-0 overflow-hidden">
+  <div *ngIf="weatherData$ | async as weatherData" class="d-flex flex-column p-4 gap-3">
+    <!-- Location Section -->
+    <div class="location-section text-center mb-2">
+      <div class="d-flex align-items-center justify-content-center gap-2">
+        <mat-icon class="text-black">location_on</mat-icon>
+        <h1 class="mb-0 fs-4 fw-semibold text-dark">{{ weatherData.name }}, {{ weatherData.sys?.country }}</h1>
+      </div>
+    </div>
+
+    <!-- Weather Icon -->
+    <div class="weather-icon mx-auto">
+      <img [src]="getWeatherIconUrl(weatherData.weather[0].icon)" [alt]="weatherData.weather[0].description"
+        class="img-fluid" style="height: 100px;">
+    </div>
+
+    <!-- Divider -->
+    <hr class="divider my-1 opacity-25">
+
+    <!-- Temperature Section -->
+    <div class="temperature-section text-center">
+      <div class="d-flex align-items-center justify-content-center gap-2">
+        <mat-icon class="text-danger">device_thermostat</mat-icon>
+        <h2 class="mb-0 fw-bold display-6">{{ weatherData.main.temp | number:'1.0-0'}}{{ unit === 'metric' ? '°C' : '°F'
+          }}</h2>
+      </div>
+    </div>
+
+    <!-- Date/Time Section -->
+    <div class="time-section text-center">
+      <div class="d-flex align-items-center justify-content-center gap-2">
+        <mat-icon class="text-secondary">schedule</mat-icon>
+        <h3 class="mb-0 fs-5 text-muted">{{weatherData.day}} {{weatherData.time}}</h3>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="divider my-1 opacity-25">
+
+    <!-- Unit Toggle -->
+    <div class="d-flex align-items-center justify-content-center w-100 mb-3">
+      <app-weather-unit-toggle></app-weather-unit-toggle>
+    </div>
+
+    <!-- Weather Details -->
+    <div class="weather-details d-flex flex-column">
+      <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
+        <mat-icon class="text-primary">cloud</mat-icon>
+        <p class="mb-0 fs-6 text-capitalize">{{ weatherData.weather[0].description }}</p>
+      </div>
+
+      <div class="d-flex align-items-center justify-content-center gap-2">
+        <mat-icon class="text-info">water_drop</mat-icon>
+        <p class="mb-0 fs-6">{{ weatherData.main.humidity}} %</p>
+      </div>
+    </div>
+
+  </div>
+</aside>

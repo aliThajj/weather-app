@@ -1,0 +1,8 @@
+<div class="my-5">
+     <div *ngIf="!isLoading">
+          <div echarts [options]="chartOption" class="chart-container"></div>
+          <button (click)="toggleUnit()" class="mx-auto d-block ">
+               Switch to {{ unit === 'metric' ? 'Fahrenheit (°F)' : 'Celsius (°C)' }}
+          </button>
+     </div>
+</div>

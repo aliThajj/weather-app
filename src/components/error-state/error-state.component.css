@@ -1,0 +1,8 @@
+.error-state {
+    text-align: center;
+    padding: 2rem;
+    mat-icon {
+      color: red;
+      font-size: 3rem;
+    }
+  }

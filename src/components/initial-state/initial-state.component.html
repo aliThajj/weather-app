@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <div class="initial-state-container w-100">
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <mat-icon class="initial-icon">location_on</mat-icon>
+            <h2 class="initial-title">Welcome to Weatherly</h2>
+        </div>
+        <p class="initial-description">Choose your location to see the forecast</p>
+        <app-location-search (locationSelected)="onLocationChosen($event)"></app-location-search>
+    </div>
+</div>

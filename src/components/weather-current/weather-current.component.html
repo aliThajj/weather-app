@@ -1,0 +1,87 @@
+<mat-card class="weather-details-card mat-elevation-z2 mb-3">
+  <mat-card-content>
+    <div *ngIf="weatherService.currentWeather$ | async as weatherData; ">
+      <div *ngIf="weatherData; ">
+        <div class="grid-container">
+          <!-- Humidity -->
+          <mat-card class="metric-card humidity">
+            <mat-card-content>
+              <div class="metric-content">
+                <mat-icon class="metric-icon">water_drop</mat-icon>
+                <div class="metric-text">
+                  <span class="metric-label">Humidity</span>
+                  <span class="metric-value">{{ weatherData.main.humidity }}%</span>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Wind -->
+          <mat-card class="metric-card wind">
+            <mat-card-content>
+              <div class="metric-content">
+                <mat-icon class="metric-icon">air</mat-icon>
+                <div class="metric-text">
+                  <span class="metric-label">Wind</span>
+                  <span class="metric-value">{{ weatherData.wind.speed }} m/s</span>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Clouds -->
+          <mat-card class="metric-card clouds">
+            <mat-card-content>
+              <div class="metric-content">
+                <mat-icon class="metric-icon">cloud</mat-icon>
+                <div class="metric-text">
+                  <span class="metric-label">Clouds</span>
+                  <span class="metric-value">{{ weatherData.clouds.all }}%</span>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Pressure -->
+          <mat-card class="metric-card pressure">
+            <mat-card-content>
+              <div class="metric-content">
+                <mat-icon class="metric-icon">speed</mat-icon>
+                <div class="metric-text">
+                  <span class="metric-label">Pressure</span>
+                  <span class="metric-value">{{ weatherData.main.pressure }} hPa</span>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Sunrise -->
+          <mat-card class="metric-card sunrise">
+            <mat-card-content>
+              <div class="metric-content">
+                <mat-icon class="metric-icon">wb_sunny</mat-icon>
+                <div class="metric-text">
+                  <span class="metric-label">Sunrise</span>
+                  <span class="metric-value">{{ weatherData.sys.sunrise * 1000 | date:'shortTime' }}</span>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <!-- Sunset -->
+          <mat-card class="metric-card sunset">
+            <mat-card-content>
+              <div class="metric-content">
+                <mat-icon class="metric-icon">nights_stay</mat-icon>
+                <div class="metric-text">
+                  <span class="metric-label">Sunset</span>
+                  <span class="metric-value">{{ weatherData.sys.sunset * 1000 | date:'shortTime' }}</span>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
